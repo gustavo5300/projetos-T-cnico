@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Cobrinha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6db3f2, #1e81b0);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Jogo da Cobrinha</h1>
+        <p class="subtitle">Controle a cobrinha e divirta-se!</p>
+        <form onsubmit="startGame(event)">
+            <input type="text" id="playerName" name="playerName" placeholder="Digite seu nome" required>
+            <button type="submit">Entrar no Jogo</button>
+        </form>
+    </div>
+
+    <script>
+        function startGame(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+            const playerName = document.getElementById("playerName").value;
+            window.location.href = `jogo.html?playerName=${encodeURIComponent(playerName)}`;
+        }
+    </script>
+</body>
+</html>
